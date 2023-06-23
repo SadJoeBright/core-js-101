@@ -35,15 +35,8 @@ function findElement(arr, value) {
  *    2 => [ 1, 3 ]
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
-function generateOdds(/* len */) {
-  // const arr = [];
-  // let num = 1;
-  // while (arr.length < len) {
-  //   arr.push(num);
-  //   num += 2;
-  // }
-  // return arr;
-  throw new Error('Not implemented');
+function generateOdds(len) {
+  return Array(len).fill(0).map((el, i) => (el + i) * 2 + 1);
 }
 
 
@@ -241,7 +234,8 @@ function toArrayOfSquares(arr) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
 function getMovingSum(/* arr */) {
-  // return arr.reduce((acc, el) => el + acc);
+  // eslint-disable-next-line no-return-assign, no-param-reassign, operator-assignment
+  // return arr.map((el, i, array) => array[i] = array[i] + array[i - 1]);
   throw new Error('Not implemented');
 }
 
@@ -275,8 +269,10 @@ function getSecondItems(arr) {
  *  [ 'a', 'b', 'c', null ] => [ 'a', 'b','b', 'c','c','c',  null,null,null,null ]
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
-function propagateItemsByPositionIndex(/* arr */) {
-  throw new Error('Not implemented');
+function propagateItemsByPositionIndex(arr) {
+  const result = [];
+  arr.map((el, i) => result.push(...Array(i + 1).fill(el)));
+  return result;
 }
 
 
